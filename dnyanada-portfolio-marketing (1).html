@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dnyanada Kulkarni — Digital Marketing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #5C7A5E;
+    --sage-light: #8aab8c;
+    --blush: #F2DDD5;
+    --ink: #1C2326;
+    --ivory: #FAF8F4;
+    --gold: #C4A35A;
+    --mid: #4a5e4b;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 4rem;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(92,122,94,0.15);
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--sage);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--ink); opacity: 0.65;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--sage); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    gap: 4rem;
+    background: var(--ivory);
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d8ead9 0%, transparent 70%);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .hero-name span { color: var(--sage); font-style: italic; }
+  .hero-tagline {
+    font-size: 1.05rem; color: #4a5e4b;
+    max-width: 480px; margin-bottom: 2.2rem;
+    font-weight: 300; line-height: 1.8;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 2rem;
+    font-size: 0.75rem; font-weight: 500;
+    background: var(--blush); color: var(--ink);
+    letter-spacing: 0.03em;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    background: var(--sage); color: white;
+    font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; border-radius: 3rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .hero-cta:hover { background: var(--mid); transform: translateY(-1px); }
+
+  .hero-card {
+    position: relative; z-index: 1;
+    background: white;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 40px rgba(92,122,94,0.1);
+    border: 1px solid rgba(92,122,94,0.1);
+  }
+  .hero-card-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--sage-light);
+    margin-bottom: 1.2rem;
+  }
+  .hero-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-style: italic; line-height: 1.75;
+    color: var(--ink); margin-bottom: 1.5rem;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; border-top: 1px solid var(--blush); padding-top: 1.4rem;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; color: var(--sage);
+  }
+  .stat-label { font-size: 0.72rem; color: #7a8a7b; line-height: 1.3; margin-top: 0.1rem; }
+
+  /* ── WAVE DIVIDER ── */
+  .wave-div {
+    width: 100%; overflow: hidden; line-height: 0;
+    background: var(--ivory);
+  }
+  .wave-div svg { display: block; }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 5rem 4rem;
+  }
+  section:nth-of-type(even) { background: white; }
+
+  .section-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .section-eyebrow {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* ── ABOUT ── */
+  #about .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+  .about-body { font-size: 1rem; line-height: 1.9; color: #3a4a3b; }
+  .about-body p + p { margin-top: 1rem; }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
+  .highlight-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.1rem 1.3rem;
+    background: var(--ivory);
+    border-radius: 0.8rem;
+    border-left: 3px solid var(--sage);
+  }
+  .highlight-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .highlight-text strong { font-size: 0.88rem; display: block; color: var(--ink); }
+  .highlight-text span { font-size: 0.8rem; color: #6a7a6b; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--ivory) !important; }
+  .exp-timeline { position: relative; }
+  .exp-timeline::before {
+    content: '';
+    position: absolute; left: 1.1rem; top: 0.5rem; bottom: 0.5rem;
+    width: 2px; background: linear-gradient(to bottom, var(--sage), var(--blush));
+  }
+  .exp-item {
+    display: grid; grid-template-columns: 2.5rem 1fr;
+    gap: 1.5rem; margin-bottom: 2.8rem;
+  }
+  .exp-dot {
+    width: 1.4rem; height: 1.4rem; border-radius: 50%;
+    background: white; border: 2.5px solid var(--sage);
+    margin-top: 0.25rem; flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(92,122,94,0.1);
+  }
+  .exp-dot.featured { background: var(--sage); }
+  .exp-content {
+    background: white; border-radius: 1rem; padding: 1.5rem 1.8rem;
+    border: 1px solid rgba(92,122,94,0.1);
+    transition: box-shadow 0.2s;
+  }
+  .exp-content:hover { box-shadow: 0 4px 24px rgba(92,122,94,0.12); }
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 600; color: var(--ink);
+  }
+  .exp-org { font-size: 0.88rem; color: var(--sage); font-weight: 500; margin: 0.2rem 0; }
+  .exp-meta {
+    font-size: 0.75rem; color: #9aaa9b; margin-bottom: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+  .exp-desc { font-size: 0.88rem; color: #4a5e4b; line-height: 1.7; }
+  .exp-tag {
+    display: inline-block; font-size: 0.68rem; font-weight: 500;
+    padding: 0.18rem 0.65rem; border-radius: 2rem;
+    background: rgba(92,122,94,0.1); color: var(--sage);
+    margin-top: 0.7rem; margin-right: 0.3rem;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: white; }
+  .edu-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .edu-card {
+    padding: 2rem; border-radius: 1rem;
+    background: var(--ivory);
+    border: 1px solid rgba(92,122,94,0.12);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .edu-card:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(92,122,94,0.12); }
+  .edu-card.primary { background: var(--sage); color: white; }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem;
+  }
+  .edu-card.primary .edu-degree { color: white; }
+  .edu-uni { font-size: 0.88rem; font-weight: 500; margin-bottom: 0.25rem; }
+  .edu-card.primary .edu-uni { color: rgba(255,255,255,0.85); }
+  .edu-years { font-size: 0.78rem; opacity: 0.65; }
+  .edu-card.primary .edu-detail { color: rgba(255,255,255,0.8); }
+  .edu-detail { font-size: 0.82rem; margin-top: 0.8rem; line-height: 1.6; color: #5a6a5b; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--ivory) !important; }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .skill-group {
+    background: white; border-radius: 1rem; padding: 1.5rem 1.8rem;
+    border: 1px solid rgba(92,122,94,0.08);
+  }
+  .skill-group-title {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .skill-pill {
+    display: inline-block; margin: 0.25rem 0.25rem 0 0;
+    padding: 0.35rem 0.85rem;
+    background: var(--blush); color: var(--ink);
+    border-radius: 2rem; font-size: 0.8rem;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--ivory) !important; }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .project-card {
+    background: white; border-radius: 1.2rem; padding: 1.8rem;
+    border: 1px solid rgba(92,122,94,0.1);
+    display: flex; flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .project-card.masters::before { background: var(--sage); }
+  .project-card.bachelors::before { background: var(--gold); }
+  .project-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(92,122,94,0.13); }
+  .project-level {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; margin-bottom: 0.7rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .project-card.masters .project-level { color: var(--sage); }
+  .project-card.bachelors .project-level { color: var(--gold); }
+  .project-status {
+    display: inline-block; font-size: 0.65rem; font-weight: 600;
+    padding: 0.15rem 0.55rem; border-radius: 2rem;
+    background: rgba(196,163,90,0.15); color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+  .project-status.complete {
+    background: rgba(92,122,94,0.1); color: var(--sage);
+  }
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600; line-height: 1.45;
+    color: var(--ink); margin-bottom: 0.8rem;
+    font-style: italic;
+  }
+  .project-desc { font-size: 0.83rem; color: #4a5e4b; line-height: 1.75; flex: 1; }
+  .project-tags { margin-top: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .project-tag {
+    font-size: 0.68rem; font-weight: 500;
+    padding: 0.2rem 0.6rem; border-radius: 2rem;
+    background: var(--blush); color: var(--ink);
+  }
+
+  /* ── RESEARCH ── */
+  #research { background: white; }
+  .research-card {
+    background: var(--ink); color: white;
+    border-radius: 1.2rem; padding: 2.5rem;
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 2rem; align-items: center;
+  }
+  .research-kicker {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .research-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-style: italic; line-height: 1.5;
+    margin-bottom: 0.8rem;
+  }
+  .research-desc { font-size: 0.88rem; opacity: 0.75; line-height: 1.7; }
+  .research-venue {
+    text-align: right; min-width: 160px;
+  }
+  .research-venue-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; color: var(--sage-light); margin-bottom: 0.4rem;
+  }
+  .research-venue-sub { font-size: 0.78rem; opacity: 0.55; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--sage) !important;
+    text-align: center; color: white;
+  }
+  #contact .section-title { color: white; }
+  #contact .section-eyebrow { color: var(--gold); }
+  .contact-sub {
+    font-size: 1rem; opacity: 0.8; max-width: 500px;
+    margin: 0 auto 2.5rem; line-height: 1.8;
+  }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.9rem 2.2rem;
+    background: white; color: var(--sage);
+    font-size: 0.92rem; font-weight: 600;
+    text-decoration: none; border-radius: 3rem;
+    transition: transform 0.15s, opacity 0.2s;
+  }
+  .contact-btn:hover { transform: translateY(-2px); opacity: 0.92; }
+  .contact-location {
+    margin-top: 2rem; font-size: 0.82rem; opacity: 0.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.4);
+    text-align: center; padding: 1.5rem; font-size: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; gap: 2rem; }
+    #hero::before { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .about-grid, .edu-cards, .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+    .research-card { grid-template-columns: 1fr; }
+    .research-venue { text-align: left; }
+    .hero-stats { grid-template-columns: repeat(3,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Dnyanada Kulkarni</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">She / Her &nbsp;·&nbsp; Open to Opportunities</p>
+    <h1 class="hero-name">The <span>Psychology</span> Behind the Click</h1>
+    <p class="hero-tagline">Aspiring digital marketer using consumer psychology and behavioural science to build content and campaigns people actually connect with.</p>
+    <div class="hero-badges">
+      <span class="badge">🛍️ Consumer Psychology</span>
+      <span class="badge">📱 Digital Marketing</span>
+      <span class="badge">✍️ Content Strategy</span>
+      <span class="badge">📍 Coventry, UK</span>
+    </div>
+
+  </div>
+
+  <div class="hero-card">
+    <p class="hero-card-label">In my own words</p>
+    <p class="hero-quote">"Curious about the psychological principles that shape why people click, buy, and stay loyal to a brand — and committed to turning those principles into content that works."</p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Internship & leadership roles</div>
+      </div>
+      <div>
+        <div class="stat-num">MSc</div>
+        <div class="stat-label">Business & Organisational Psychology, incl. Consumer Psychology</div>
+      </div>
+      <div>
+        <div class="stat-num">1</div>
+        <div class="stat-label">International research presentation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-div" style="background:white;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,0 L0,0 Z" fill="#FAF8F4"/>
+  </svg>
+</div>
+
+<!-- ABOUT -->
+<section id="about" style="background:white;">
+  <div class="section-header">
+    <span class="section-eyebrow">About</span>
+    <h2 class="section-title">Who I am</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-body">
+      <p>I'm an MSc Business & Organisational Psychology student at Coventry University, passionate about applying behavioural science to the "why" behind consumer decisions — what captures attention, builds trust, and drives loyalty.</p>
+      <p>My academic training includes a dedicated module in Consumer Psychology alongside research methods and evidence-based decision-making, and my Bachelor's dissertation examined how creative storytelling in advertising shapes brand perception and loyalty. I bring this thinking to life through hands-on experience in content creation, social media management, and audience-facing communication.</p>
+      <p>I am seeking entry-level Digital Marketing roles where I can combine psychological insight with content strategy, social media, and campaign work — turning an understanding of consumer behaviour into marketing that genuinely connects.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-item">
+        <span class="highlight-icon">🎯</span>
+        <div class="highlight-text">
+          <strong>Consumer Psychology</strong>
+          <span>MSc module and Bachelor's dissertation research into what drives brand perception and loyalty</span>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <span class="highlight-icon">📱</span>
+        <div class="highlight-text">
+          <strong>Social Media & Content</strong>
+          <span>Managed brand presence and created digital content to drive engagement for a food startup</span>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <span class="highlight-icon">📚</span>
+        <div class="highlight-text">
+          <strong>Research & Writing</strong>
+          <span>Published content on psychology; presented at an international symposium</span>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <span class="highlight-icon">🤝</span>
+        <div class="highlight-text">
+          <strong>Community Leadership</strong>
+          <span>President of a university psychology club with 100+ members</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-div" style="background:#FAF8F4;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,0 L0,0 Z" fill="white"/>
+  </svg>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-eyebrow">Experience</span>
+    <h2 class="section-title">Where I've worked</h2>
+  </div>
+  <div class="exp-timeline">
+
+    <div class="exp-item">
+      <div class="exp-dot featured"></div>
+      <div class="exp-content">
+        <div class="exp-role">Social Media Manager</div>
+        <div class="exp-org">Tikhat-Meeth Foods</div>
+        <div class="exp-meta">Jun 2025 – Aug 2025 · 3 months · Pune, India · On-site</div>
+        <p class="exp-desc">Managed brand presence and created online content to drive engagement for a food startup, developing skills in audience communication and digital storytelling.</p>
+        <span class="exp-tag">Content Creation</span>
+        <span class="exp-tag">Social Media Marketing</span>
+        <span class="exp-tag">Brand Communication</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot featured"></div>
+      <div class="exp-content">
+        <div class="exp-role">President</div>
+        <div class="exp-org">Manamitra Psychology Club</div>
+        <div class="exp-meta">Jun 2024 – Jun 2025 · 1 year · University</div>
+        <p class="exp-desc">Led a student-run psychology club, organising events, coordinating teams, and building a community of engaged psychology enthusiasts. Honed leadership and interpersonal skills in an academic context.</p>
+        <span class="exp-tag">Leadership</span>
+        <span class="exp-tag">Event Management</span>
+        <span class="exp-tag">Community Building</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <div class="exp-role">Content Writing Intern</div>
+        <div class="exp-org">PsychoLogs Magazine</div>
+        <div class="exp-meta">Jun 2024 – Sep 2024 · 4 months · Remote</div>
+        <p class="exp-desc">Researched and wrote accessible, engaging articles on psychological topics. Strengthened research literacy, written communication, and the ability to translate academic concepts for general audiences.</p>
+        <span class="exp-tag">Content Writing</span>
+        <span class="exp-tag">Audience Engagement</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <div class="exp-role">Personality Development Workshop Facilitator</div>
+        <div class="exp-org">Jivhala Foundation</div>
+        <div class="exp-meta">Jun 2024 – Aug 2024 · 3 months · Pune, India · On-site</div>
+        <p class="exp-desc">Designed and facilitated personality development workshops for young girls, applying psychological frameworks in a real-world, community setting. Bridged theory and practice in meaningful ways.</p>
+        <span class="exp-tag">Facilitation</span>
+        <span class="exp-tag">Training Design</span>
+        <span class="exp-tag">Applied Psychology</span>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <div class="exp-role">Research & Development Intern</div>
+        <div class="exp-org">Vishwakalyan Gurukul Seva Foundation</div>
+        <div class="exp-meta">Jun 2023 – Jul 2023 · 2 months · On-site</div>
+        <p class="exp-desc">Contributed to research and development initiatives, building foundational skills in data gathering, analysis, and presenting insights in an organisational context.</p>
+        <span class="exp-tag">Research</span>
+        <span class="exp-tag">Analysis</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-div" style="background:white;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,0 L0,0 Z" fill="#FAF8F4"/>
+  </svg>
+</div>
+
+<!-- EDUCATION -->
+<section id="education" style="background:white;">
+  <div class="section-header">
+    <span class="section-eyebrow">Education</span>
+    <h2 class="section-title">Academic background</h2>
+  </div>
+  <div class="edu-cards">
+    <div class="edu-card primary">
+      <div class="edu-degree">MSc Business & Organisational Psychology</div>
+      <div class="edu-uni">Coventry University</div>
+      <div class="edu-years">Sep 2025 – Sep 2026 · Coventry, England</div>
+      <p class="edu-detail">Coursework includes a dedicated <strong>Consumer Psychology</strong> module — studying decision-making, motivation, and persuasion — alongside employee engagement, leadership behaviour, and evidence-based decision-making.</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Arts — Psychology</div>
+      <div class="edu-uni">Savitribai Phule Pune University (IDSS)</div>
+      <div class="edu-years">2022 – 2025 · Pune, India</div>
+      <p class="edu-detail">Dissertation on creative storytelling in advertising and its effect on brand loyalty — three years of psychological theory, research methods, and applied studies including qualitative research and interdisciplinary coursework.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-div" style="background:#FAF8F4;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,0 L0,0 Z" fill="white"/>
+  </svg>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-eyebrow">Skills</span>
+    <h2 class="section-title">What I bring</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Digital Marketing</div>
+      <span class="skill-pill">Social Media Management</span>
+      <span class="skill-pill">Content Strategy</span>
+      <span class="skill-pill">Brand Communication</span>
+      <span class="skill-pill">Audience Engagement</span>
+      <span class="skill-pill">Digital Storytelling</span>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Consumer & Behavioural Psychology</div>
+      <span class="skill-pill">Consumer Psychology</span>
+      <span class="skill-pill">Brand Perception</span>
+      <span class="skill-pill">Behavioural Science</span>
+      <span class="skill-pill">Research Methods</span>
+      <span class="skill-pill">Evidence-based Practice</span>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Communication & Content</div>
+      <span class="skill-pill">Content Writing</span>
+      <span class="skill-pill">Workshop Facilitation</span>
+      <span class="skill-pill">Interpersonal Communication</span>
+      <span class="skill-pill">Research Writing</span>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-div" style="background:white;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,0 L0,0 Z" fill="#FAF8F4"/>
+  </svg>
+</div>
+
+<!-- WAVE -->
+<div class="wave-div" style="background:#FAF8F4;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,0 L0,0 Z" fill="white"/>
+  </svg>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-eyebrow">Projects</span>
+    <h2 class="section-title">Academic research & dissertations</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card bachelors">
+      <div class="project-level">
+        Bachelor's Dissertation &nbsp;<span class="project-status complete">Completed</span>
+      </div>
+      <div class="project-title">"Creative Storytelling in Advertising: Brand Loyalty and Brand Perception"</div>
+      <p class="project-desc">Investigated how creative storytelling techniques used in advertising campaigns shape consumer brand perception and foster long-term brand loyalty. Explored the psychological mechanisms — emotional engagement, narrative transportation, and identity alignment — through which compelling brand stories influence consumer behaviour.</p>
+      <div class="project-tags">
+        <span class="project-tag">Consumer Psychology</span>
+        <span class="project-tag">Brand Perception</span>
+        <span class="project-tag">Brand Loyalty</span>
+        <span class="project-tag">Advertising</span>
+        <span class="project-tag">Narrative Psychology</span>
+      </div>
+    </div>
+
+    <div class="project-card masters">
+      <div class="project-level">
+        MSc Dissertation &nbsp;<span class="project-status">In Progress</span>
+      </div>
+      <div class="project-title">"Impact of Overwork on Employee Burnout: The Moderating Role of Organisational Culture"</div>
+      <p class="project-desc">A Systematic Literature Review (SLR) examining how excessive workloads contribute to employee burnout, and whether organisational culture — its norms, values, and support structures — moderates this relationship. Drawing on occupational psychology and organisational behaviour literature to build an evidence-based framework for healthier workplaces.</p>
+      <div class="project-tags">
+        <span class="project-tag">Systematic Literature Review</span>
+        <span class="project-tag">Employee Wellbeing</span>
+        <span class="project-tag">Burnout</span>
+        <span class="project-tag">Organisational Culture</span>
+        <span class="project-tag">Occupational Psychology</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-level" style="color:var(--sage-light);">
+        Research Presentation &nbsp;<span class="project-status complete">Presented 2024</span>
+      </div>
+      <div class="project-title">"Reclaiming Our Stories: Decolonization by Women Through Literature and Folk Theatre of Maharashtra (1950s–1970s)"</div>
+      <p class="project-desc">Presented at the University of Melbourne's <em>Leading Together 2024</em> international symposium. Explored how women in Maharashtra used literature and folk theatre as instruments of resistance and cultural decolonization in post-independence India.</p>
+      <div class="project-tags">
+        <span class="project-tag">Decolonization</span>
+        <span class="project-tag">Gender Studies</span>
+        <span class="project-tag">Cultural History</span>
+        <span class="project-tag">Maharashtra</span>
+        <span class="project-tag">International Symposium</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-div" style="background:white;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,0 L0,0 Z" fill="#FAF8F4"/>
+  </svg>
+</div>
+
+<!-- RESEARCH -->
+<section id="research" style="background:white;">
+  <div class="section-header">
+    <span class="section-eyebrow">Research</span>
+    <h2 class="section-title">Academic contribution</h2>
+  </div>
+  <div class="research-card">
+    <div>
+      <p class="research-kicker">Research Paper · Presented 2024</p>
+      <h3 class="research-title">"Reclaiming Our Stories: Decolonization by Women Through Literature and Folk Theatre of Maharashtra (1950s–1970s)"</h3>
+      <p class="research-desc">Explored how women in Maharashtra used literature and folk theatre as tools of resistance and decolonization, recovering suppressed narratives and reshaping cultural identity in post-independence India.</p>
+    </div>
+    <div class="research-venue">
+      <div class="research-venue-name">University of Melbourne</div>
+      <div class="research-venue-sub">Leading Together 2024<br>International Symposium</div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave-div" style="background:#5C7A5E;">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="48">
+    <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,0 L0,0 Z" fill="white"/>
+  </svg>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header" style="justify-content:center; margin-bottom:1rem;">
+    <h2 class="section-title" style="color:white;">Let's connect</h2>
+  </div>
+  <p class="contact-sub">I'm actively seeking entry-level roles in Digital Marketing, Content, or Social Media. If you're looking for someone who combines consumer psychology insight with a genuine flair for storytelling — I'd love to hear from you.</p>
+  <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin-bottom:1.5rem;">
+    <a href="mailto:kdnyanada0305@gmail.com" class="contact-btn">
+      ✉️ kdnyanada0305@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/dnyanada-kulkarni-5585a027b" target="_blank" class="contact-btn" style="background:rgba(255,255,255,0.15); color:white; border:1.5px solid rgba(255,255,255,0.4);">
+      LinkedIn Profile →
+    </a>
+  </div>
+  <p class="contact-location">📍 Coventry, England &nbsp;·&nbsp; Open to On-site, Hybrid & Remote</p>
+</section>
+
+<footer>
+  <p>© 2026 Dnyanada Kulkarni &nbsp;·&nbsp; Built with care</p>
+</footer>
+
+</body>
+</html>
